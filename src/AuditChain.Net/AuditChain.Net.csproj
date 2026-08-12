@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>AuditChain</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>AuditChain.Net</PackageId>
+    <Version>0.1.0</Version>
+    <Title>AuditChain.NET</Title>
+    <Authors>Israel Iyonsi</Authors>
+    <Copyright>Copyright (c) 2026 Israel Iyonsi</Copyright>
+    <Description>Tamper-evident, hash-chained append-only audit log for .NET. Every entry is SHA-256 chained to the one before it, with full-chain verification that pinpoints the exact break: mutated payload, deleted record, reordered record, or forged hash. Zero dependencies, injected time source.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/IsraelIyonsi/AuditChain.NET</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/IsraelIyonsi/AuditChain.NET</PackageProjectUrl>
+    <PackageTags>audit;audit-log;hash-chain;tamper-evident;sha256;compliance;eu-ai-act;integrity;append-only;logging</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>See https://github.com/IsraelIyonsi/AuditChain.NET/blob/main/CHANGELOG.md</PackageReleaseNotes>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="AuditChain.Net.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
